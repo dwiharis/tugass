@@ -41,7 +41,6 @@ include '_navbar.php';
              <div class="col-lg-15 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">KELAS</h4>
                     <table class="table">
                       <thead>
                        <tr >

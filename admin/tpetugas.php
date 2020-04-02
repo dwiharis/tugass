@@ -36,13 +36,12 @@ error_reporting(0);
 					    </div>
 					  </div>
 					  <div class="form-group">
-					    <div class="col-sm-offset-2 col-sm-3">
+					    <div class="col-12 ">
 					      <button type="submit" name="submit" class="btn btn-success btn-md">Lanjut</button>
 					    </div>
 					  </div>
 					</form>
-					<br><br>
-
+					<br>
           
 
  
@@ -79,14 +78,18 @@ error_reporting(0);
 		list($nisn,$nis,$nama_siswa,$nama_kelas,$alamat,$no_telfon,$id_spp ) = mysqli_fetch_array($sql);
 		
      echo '<div class="row">';
-		echo '<div class="col-sm-12"><table class="table ">';
-		echo '<tr><td colspan="2">Nomor Induk</td><td colspan="4">:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.$nisn.'</td>';
+     echo '<div class="col-sm-12"><table class="table table-striped" ">';
 		
-		echo '<tr><td colspan="2">Nama</td><td colspan="4">:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.$nama_siswa.'</td></tr>';
+		echo '<tr><td >Nomor Induk  &nbsp; :  &nbsp;  &nbsp; '.$nisn.'</td> <br>';
 		
-		echo '<tr><td colspan="2">Kelas</td><td colspan="4">:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.$nama_kelas.'</td></tr>';
+		echo '<tr><td >Nama &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :  &nbsp;  &nbsp; '.$nama_siswa.'</td></tr>';
+		
+		echo '<tr><td >Kelas  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;&nbsp; '.$nama_kelas.'</td></tr> ';
+		echo '</tabel></div>';
+		 echo '<div class="row">';
+		
+		echo '<div class="col-sm-4"><table class="table "><br><br>';
       
-		echo '<tr><td colspan="6">';;
 ?>
 				<form class="form-inline " role="form" method="post" action="./tpetugas.php">
  				    <div class="row">
@@ -190,11 +193,12 @@ error_reporting(0);
 	</div>
   </div>
 </div>
+<div class="form-group">
+					    <div class="col-sm-offset-2 ">
   <button type="submit" class="btn btn-gradient-success btn-rounded btn-md" name="submit" value="bayar">Bayar</button>
+</div></div>
 </form>
 <?php
-		echo '</td></tr>';
-		echo '</tabel><tabel>';
 		echo '<tr class="info"><th width="50">No</th><th width="100">Nisn</th><th>Tanggal Bayar</th><th>Bulan</th><th>Jumlah Bayar</th>';
 		echo '<th>&nbsp;</th>';
 		echo '</tr>';
@@ -221,9 +225,11 @@ error_reporting(0);
 					
 					
 				}
-      				echo '</td></tr>';
+				 echo ' <a href="./cetak.php?submit=nota&nisn='.$nisn.'&tgl_bayar='.$tgl_bayar.'&bulan='.$bulan.'" target="_blank" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-print" aria-hidden="true">cetak</span></a>';
 				
 			} 
+
+				
 			//echo '<tr><td colspan="6"><em>Belum ada data!</em></td></tr>';
 		} else{'<tr><td colspan="6"><em>Belum ada data!</em></td></tr>';}
 		echo '</table></div></div>';
@@ -232,3 +238,6 @@ error_reporting(0);
 ?>
 </div></div></div>
 <!-- form input nomor induk siswa -->
+<?php 
+include '_footer.php';
+ ?>

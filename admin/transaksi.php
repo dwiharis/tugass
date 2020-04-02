@@ -221,9 +221,13 @@ error_reporting(0);
 					
 					
 				}
+				 echo ' <a href="./cetak.php?submit=nota&nisn='.$nisn.'&tgl_bayar='.$tgl_bayar.'&bulan='.$bulan.'" target="_blank" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-print" aria-hidden="true"></span></a>';
+				
       				echo '</td></tr>';
 				
 			} 
+
+				
 			//echo '<tr><td colspan="6"><em>Belum ada data!</em></td></tr>';
 		} else{'<tr><td colspan="6"><em>Belum ada data!</em></td></tr>';}
 		echo '</table></div></div>';

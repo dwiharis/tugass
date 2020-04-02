@@ -3,7 +3,7 @@
 include 'koneksi.php';
 
  ?>
-asdfasdfg
+
 
 <!DOCTYPE html>
 <html lang="en">

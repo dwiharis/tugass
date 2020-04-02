@@ -232,3 +232,6 @@ error_reporting(0);
 ?>
 </div></div></div>
 <!-- form input nomor induk siswa -->
+<?php 
+include '_footer.php';
+ ?>

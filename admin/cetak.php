@@ -7,6 +7,8 @@
 
 	<?php 
 	include 'koneksi.php';
+	$id=$_GET['id_pembayaran'];
+	
 	?>
  <table>
 		</td></tr>
@@ -16,7 +18,7 @@
 		</tr>
 		<?php 
 		$no = 1;
-		$sql = mysqli_query($koneksi,"select * from pembayaran");
+		$sql = mysqli_query($koneksi,"select * from pembayaran where id_pembayaran='$id'");
 		while($data = mysqli_fetch_array($sql)){
 		?>
 		<tr>

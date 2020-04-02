@@ -51,6 +51,7 @@ error_reporting(0);
 		//proses pembayaran secara bertahap
 		$submit = $_REQUEST['submit'];
 		$nisn = $_REQUEST['nisn'];
+
 		
 		//proses simpan pembayaran
 		if($submit=='bayar'){
@@ -105,6 +106,7 @@ error_reporting(0);
                                $id_p=$idd+1;
                                ?>
                                <input type="text" name="id_pembayaran" class="form-control" placeholder="ID Spp" value=" <?php  echo $id_p ?>  " required readonly />
+
   							</div>
   						</div>
   					</div>
@@ -200,12 +202,14 @@ error_reporting(0);
 		echo '</tr>';
 		
 		//tampilkan histori pembayaran, jika ada
-		$qbayar = mysqli_query($koneksi, "SELECT nisn,tgl_bayar,bulan,jumlah_bayar FROM pembayaran WHERE nisn='$nisn' ORDER BY tgl_bayar DESC");
+		$qbayar = mysqli_query($koneksi, "SELECT id_pembayaran,nisn,tgl_bayar,bulan,jumlah_bayar FROM pembayaran WHERE nisn='$nisn' ORDER BY tgl_bayar DESC");
+
 		if(mysqli_num_rows($sql) > 0){
 		 		$no = 0;
 				 
 			while($tampil = mysqli_fetch_array($qbayar)){
 				$no++;
+				$id_bayar=$tampil['id_pembayaran'];
 				echo '<tr><td>'.$no.'</td>';
 				echo '<td>'.$tampil['nisn'].'</td>';
 				echo '<td>'.$tampil['tgl_bayar'].'</td>';
@@ -213,15 +217,14 @@ error_reporting(0);
 				echo '<td>'.$tampil['jumlah_bayar'].'</td><td>';
 				
 				if( $_SESSION['level'] == 1 ){
-					
+					$id= $tampil['id_pembayaran'];
 					$nisn = $tampil['nisn'];
 					$tgl_bayar = $tampil['tgl_bayar'];
 					$bulan = $tampil['bulan'];
 					$jumlah = $tampil['jumlah_bayar'];
 					
-					
 				}
-				 echo ' <a href="./cetak.php?submit=nota&nisn='.$nisn.'&tgl_bayar='.$tgl_bayar.'&bulan='.$bulan.'" target="_blank" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-print" aria-hidden="true"></span></a>';
+				 echo ' <a href="./cetak.php?submit=nota&id_pembayaran='.$id_bayar.'" target="_blank" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-print" aria-hidden="true"></span></a>';
 				
       				echo '</td></tr>';
 				

@@ -13,12 +13,7 @@ include '_navbar.php';
                 <span class="page-title-icon bg-gradient-primary text-white mr-2">
                   <i class="mdi mdi-home"></i>
                 </span> LAPORAN TRANSAKSI </h3>
-              	<input type="text" class="form-control" placeholder="Pencarian..." id="keyword">
-            
-            <span class="input-group-btn">
-              <!-- Buat sebuah tombol search dan beri id btn-search -->
-              <button class="btn btn-primary btn-sm" type="button" id="btn-search">SEARCH</button>
-            </span>
+              	
                  </div>
             <?php
 
@@ -44,6 +39,17 @@ include '_navbar.php';
              <div class="col-lg-15 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
+                  	<div>
+                  	<span>
+                  	<a href="cetak.php" class="btn btn-warning" role="button">Cetak</a>
+                  	</span>
+                  	</div>
+                  	<br>
+                  	<input type="text" class="form-control" placeholder="Pencarian..." id="keyword">
+            
+            <span class="input-group-btn">
+              <!-- Buat sebuah tombol search dan beri id btn-search -->
+            </span>
 
                     <table class="table">
                       

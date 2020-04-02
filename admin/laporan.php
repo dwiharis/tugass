@@ -80,7 +80,7 @@ include '_navbar.php';
                                                     <td><?php echo $data["tgl_bayar"];   ?></td>
                                                     <td><?php echo $data["bulan"];   ?></td>
                                                     <td><?php echo $data["tahun"];   ?></td>
-                                                    <td><?php echo $data["jumlah_bayar"];   ?></td>
+                                                    <td><?php echo number_format($data["jumlah_bayar"]);   ?></td>
                                                     <td>
                                                         <a href="update_siswa.php?nisn=<?php echo htmlspecialchars($data['nisn']); ?>" class="btn btn-warning btn-sm" role="button">Update</a>
                                                         <a href="delete_siswa.php?nisn=<?php echo htmlspecialchars($data["nisn"]); ?>" class="btn btn-danger btn-sm"  role="button"> Delete</a>

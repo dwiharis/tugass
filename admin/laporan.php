@@ -49,7 +49,7 @@ include '_navbar.php';
             
             <span class="input-group-btn">
               <!-- Buat sebuah tombol search dan beri id btn-search -->
-            </span>
+            </span><br><br>
 
                     <table class="table">
                       
@@ -63,7 +63,6 @@ include '_navbar.php';
                              <th width="5%">Bulan</th>
                              <th width="5%">Periode</th>
                              <th width="5%">Besar SPP</th>
-                             <th width="15%">Aksi</th>
 
                                             </tr>
                                             </thead>
@@ -87,10 +86,7 @@ include '_navbar.php';
                                                     <td><?php echo $data["bulan"];   ?></td>
                                                     <td><?php echo $data["tahun"];   ?></td>
                                                     <td><?php echo number_format($data["jumlah_bayar"]);   ?></td>
-                                                    <td>
-                                                        <a href="update_siswa.php?nisn=<?php echo htmlspecialchars($data['nisn']); ?>" class="btn btn-warning btn-sm" role="button">Update</a>
-                                                        <a href="delete_siswa.php?nisn=<?php echo htmlspecialchars($data["nisn"]); ?>" class="btn btn-danger btn-sm"  role="button"> Delete</a>
-                                                    </td>
+                                                    
                                                 </tr>
                                                 </tbody>
                                                 <?php

@@ -30,7 +30,7 @@ include 'koneksi.php';
 
          $tgl = date("d/m/Y");
 
-         $q = "SELECT pembayaran,sum(jumlah) FROM pembayaran WHERE tgl_bayar='$tgl' GROUP BY pembayaran";
+         $q = "SELECT * FROM pembayaran WHERE tgl_bayar BETWEEN '$tgl1' AND '$tgl2'";
 
          echo '<h2>Rekap Pembayaran <small>'.$tgl.'</small></h2><hr>';
 
@@ -91,7 +91,7 @@ include 'koneksi.php';
                                             </thead>
                                             <?php
                                             include "koneksi.php";
-                                            $sql="select siswa.nis, siswa.nama, user.nama_petugas, pembayaran.tgl_bayar, pembayaran.bulan, pembayaran.tahun, pembayaran.jumlah_bayar from siswa, pembayaran, user WHERE pembayaran.nisn=siswa.nisn AND pembayaran.id_petugas=user.id_petugas ORDER BY pembayaran.tgl_bayar DESC";
+                                            $sql="select siswa.nis, siswa.nama, user.nama_petugas, pembayaran.tgl_bayar, pembayaran.bulan, pembayaran.tahun, pembayaran.jumlah_bayar from siswa, pembayaran, user WHERE pembayaran.tgl_bayar BETWEEN '$tgl1' AND '$tgl2' AND pembayaran.nisn=siswa.nisn AND pembayaran.id_petugas=user.id_petugas ORDER BY pembayaran.tgl_bayar DESC";
 
                                             $hasil=mysqli_query($koneksi,$sql);
                                             $no=0;

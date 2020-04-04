@@ -42,8 +42,8 @@ include '_navbar.php';
 
         $hasil=mysqli_query($koneksi,$sql);
 
-        if ($hasil>0) {
-            header("Location:petugas.php");
+        if ($hasil) {
+            header('Location:petugas.php');
         }
         else {
             echo "<div class='alert alert-danger'> Data Gagal diupdate.</div>";

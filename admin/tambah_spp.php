@@ -24,7 +24,7 @@ include '_navbar.php';
 
         $hasil=mysqli_query($koneksi,$sql);
 
-        if ($hasil) {
+        if ($hasil > 0) {
             header("Location:spp.php");
         }
         else {

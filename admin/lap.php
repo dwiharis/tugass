@@ -1,7 +1,7 @@
 <?php
 
 
-
+include 'koneksi.php';
    
 
       if(isset($_REQUEST['submit'])){
@@ -16,7 +16,7 @@
 
          //echo $tgl1.'-'.$tgl2;
 
-         $q = "SELECT kelas,sum(jumlah) FROM pembayaran WHERE tgl_bayar BETWEEN '$tgl1' AND '$tgl2' GROUP BY kelas";
+         $q = "select siswa.nis, siswa.nama, user.nama_petugas, pembayaran.tgl_bayar, pembayaran.bulan, pembayaran.tahun, pembayaran.jumlah_bayar from siswa, pembayaran, user WHERE pembayaran.nisn=siswa.nisn AND pembayaran.id_petugas=user.id_petugas ORDER BY pembayaran.tgl_bayar DESC";
 
          
 
@@ -30,7 +30,7 @@
 
          $tgl = date("d/m/Y");
 
-         $q = "SELECT kelas,sum(jumlah) FROM pembayaran WHERE tgl_bayar='$tgl' GROUP BY kelas";
+         $q = "SELECT pembayaran,sum(jumlah) FROM pembayaran WHERE tgl_bayar='$tgl' GROUP BY pembayaran";
 
          echo '<h2>Rekap Pembayaran <small>'.$tgl.'</small></h2><hr>';
 
@@ -74,37 +74,48 @@
 
 </div>
 
-<?php
+                    <table class="table">
+                      
+                        <thead>
+                             <tr>
+                             <th width="2%">No</th>
+                             <th width="10%">Nis</th>
+                             <th width="20%">Nama</th>
+                             <th width="5%">Petugas</th>
+                             <th width="5%">Tanggal Bayar</th>
+                             <th width="5%">Bulan</th>
+                             <th width="5%">Periode</th>
+                             <th width="5%">Besar SPP</th>
 
-      echo '<table class="table table-bordered">';
+                                            </tr>
+                                            </thead>
+                                            <?php
+                                            include "koneksi.php";
+                                            $sql="select siswa.nis, siswa.nama, user.nama_petugas, pembayaran.tgl_bayar, pembayaran.bulan, pembayaran.tahun, pembayaran.jumlah_bayar from siswa, pembayaran, user WHERE pembayaran.nisn=siswa.nisn AND pembayaran.id_petugas=user.id_petugas ORDER BY pembayaran.tgl_bayar DESC";
 
-      echo '<tr class="info"><th width="50">#</th><th>Kelas</th><th>Jumlah</th></tr>';
+                                            $hasil=mysqli_query($koneksi,$sql);
+                                            $no=0;
+                                            while ($data = mysqli_fetch_array($hasil)) {
+                                                $no++;
 
-      
-
-      $total = 0;
-
-      $no=1;
-
-      while(list($kls,$jml) = mysql_fetch_array($sql)){
-
-         echo '<tr><td>'.$no.'</td><td>'.$kls.'</td><td><span class="pull-right">'.number_format($jml).'</span></td></tr>';
-
-         $total += $jml;
-
-         $no++;
-
-      }
-
-      
-
-      echo '<tr><td colspan="2"><span class="pull-right">T O T A L</span></td><td><span class="pull-right">'.number_format($total).'</span></td></tr>';
-
-      echo '</table>';
-
-      echo '</div></div>';
-
-
+                                                ?>
+                                                <tbody>
+                                                <tr>
+                                                    <td><?php echo $no;?></td>
+                                                    <td><?php echo $data["nis"];   ?></td>
+                                                    <td><?php echo $data["nama"];   ?></td>
+                                                    <td><?php echo $data["nama_petugas"];   ?></td>
+                                                    <td><?php echo $data["tgl_bayar"];   ?></td>
+                                                    <td><?php echo $data["bulan"];   ?></td>
+                                                    <td><?php echo $data["tahun"];   ?></td>
+                                                    <td><?php echo number_format($data["jumlah_bayar"]);   ?></td>
+                                                    
+                                                </tr>
+                                                </tbody>
+                                                <?php
+                                            }
+                                            ?>
+                                        </table> 
 
 
 

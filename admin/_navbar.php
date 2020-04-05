@@ -109,17 +109,24 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="laporan.php">
-                <span class="menu-title">Laporan</span>
+              <a class="nav-link" href="lap.php">
+                <span class="menu-title">laporan</span>
                 <i class="mdi mdi-book menu-icon"></i>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="lap.php">
+              <a class="nav-link" href="laporan.php">
                 <span class="menu-title">History</span>
                 <i class="mdi mdi-book menu-icon"></i>
               </a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="his.php">
+                <span class="menu-title">History</span>
+                <i class="mdi mdi-book menu-icon"></i>
+              </a>
+            </li>
+
            
           </ul>
         </nav>

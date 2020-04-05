@@ -94,10 +94,8 @@ error_reporting(0);
 ?>
         <form class="form-inline " role="form" method="post" action="./tpetugas.php">
             <div class="row">
-                <div class="col-md-5">
-                	<div class="form-group row">
-                    	<label class="col-sm-3 col-form-label">ID Spp</label>
-                            <div class="col-sm-7">
+                
+
               				  <?php 
                               $query="SELECT id_pembayaran FROM pembayaran where id_pembayaran";
                               $hasil=$koneksi->query($query);
@@ -108,10 +106,8 @@ error_reporting(0);
 
                                $id_p=$idd+1;
                                ?>
-                               <input type="text" name="id_pembayaran" class="form-control" placeholder="ID Spp" value=" <?php  echo $id_p ?>  " required readonly />
-	                		</div>
-                	</div>
-            	</div>
+                               <input type="hidden" name="id_pembayaran" class="form-control" placeholder="ID Spp" value=" <?php  echo $id_p ?>  " required readonly />
+	                		
             	<div class="col-md-5">
 					<div class="form-group row">
                     	<label class="col-sm-3 col-form-label">Petugas</label>
@@ -120,7 +116,7 @@ error_reporting(0);
 				                <?php
 				                  $q = mysqli_query($koneksi, "SELECT * FROM user");
 				                  while($data = mysqli_fetch_array($q)){
-				                    echo '<option value="'.$data['nama_petugas'].'">'.$data['nama_petugas'].'</option>';
+				                    echo '<option value="'.$data['id_petugas'].'">'.$data['nama_petugas'].'</option>';
 				                  }
 				                ?>
              				    </select>

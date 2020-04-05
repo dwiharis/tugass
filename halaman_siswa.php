@@ -14,7 +14,12 @@ include '_navbar.php';
                 <i class="mdi mdi-home menu-icon"></i>
               </a>
             </li>
-
+            <li class="nav-item">
+              <a class="nav-link" href="data.php">
+                <span class="menu-title">siswa</span>
+                <i class="mdi mdi-book menu-icon"></i>
+              </a>
+            </li>
            
           </ul>
         </nav>

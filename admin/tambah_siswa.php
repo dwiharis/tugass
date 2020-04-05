@@ -62,28 +62,59 @@ include '_navbar.php';
               </nav>
             </div>
  
-
-              <div class="col-12">
+ <div class="col-12">
                 <div class="card">
                   <div class="card-body">
-                    <form action="<?php echo $_SERVER["PHP_SELF"];?>" method="post">
-        <div class="form-group">
-            <label> Nisn:</label>
-            <input type="text" name="nisn" class="form-control" placeholder="Masukan Nisn" required />
+                    <form class="form-sample" action="<?php echo $_SERVER["PHP_SELF"];?>" method="post">
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">ID Petugas</label>
+                            <div class="col-sm-9">
+                              <?php 
+                              $query="SELECT id_petugas FROM user where id_petugas";
+                              $hasil=$koneksi->query($query);
+                              $id=0;
+                              while ($row=$hasil->fetch_array()) {
+                                $id=$row['id_petugas'];
+                               }
 
-        </div>
-        <div class="form-group">
-            <label>Nis:</label>
+                               $id_pet=$id+1;
+                               ?>
+
+                              <input type="text" class="form-control" name="id_petugas" value="P<?php echo $id_pet; ?>"  readonly/>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Nisn</label>
+                            <div class="col-sm-9">
+            <input type="text" name="nisn" class="form-control" placeholder="Masukan Nisn" required />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Nis</label>
+                            <div class="col-sm-9">
             <input type="text" name="nis" class="form-control" placeholder="Masukan Nis" required />
 
-        </div>
-        <div class="form-group">
-            <label>Nama:</label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Nama Siswa</label>
+                            <div class="col-sm-9">
             <input type="text" name="nama" class="form-control" placeholder="Masukan Nama" required />
-
-            </div>
-        <div class="form-group">
-            <label> ID Kelas:</label>
+                            </div>
+                          </div>
+                        </div> 
+                         <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Kelas</label>
+                            <div class="col-sm-9">
             <select class="form-control" name="id_kelas">
             <?php
                 mysql_connect("localhost","root","");
@@ -97,22 +128,30 @@ include '_navbar.php';
                 <option value=<?php echo $data['nama_kelas']; ?>><?php echo $data['nama_kelas']; ?></option>
                 <?php }?>
             </select>
-
-            
-        </div>
-        <div class="form-group">
-            <label>Alamat:</label>
+                            </div>
+                          </div>
+                        </div>    
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Alamat</label>
+                            <div class="col-sm-9">
             <input type="text" name="alamat" class="form-control" placeholder="Masukan Alamat" required />
-
-        </div>
-        <div class="form-group">
-            <label>No Telfon:</label>
+                            </div>
+                          </div>
+                        </div>    
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Nomer Telfon</label>
+                            <div class="col-sm-9">
             <input type="text" name="no_telp" class="form-control" placeholder="Masukan No Telfon" required />
-
-            </div>
-        <div class="form-group">
-            <label>ID Spp:</label>
-             <select class="form-control form-control-line" name="id_spp">
+                            </div>
+                          </div>
+                        </div>    
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Nominal</label>
+                            <div class="col-sm-9">
+            <select class="form-control form-control-line" name="id_spp">
                 <?php
                 mysql_connect("localhost","root","");
                 mysql_select_db("spp"); 
@@ -124,17 +163,20 @@ include '_navbar.php';
                 <option value=<?php echo $dataa['nominal']; ?> ><?php echo $dataa['nominal']; ?></option>
                 <?php }?>
              </select>
-             
-              
-            </div>
-        <button type="submit" name="submit" class="btn btn-primary">Submit</button>
-        <a href="siswa.php" class="btn btn-primary" role="button">Batal</a>
-    </form>
-                      
+                            </div>
+                          </div>
+                        </div>                          
+                      </div>
+                    
+
+                       <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
+                      <button class="btn btn-light">Cancel</button>
+                    </form>
                   </div>
                 </div>
               </div>
 
+             
 
           </div>
           <!-- content-wrapper ends -->

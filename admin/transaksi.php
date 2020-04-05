@@ -96,7 +96,7 @@ error_reporting(0);
             <div class="row">
                 <div class="col-md-5">
                 	<div class="form-group row">
-                    	<label class="col-sm-3 col-form-label">ID Spp</label>
+                    	<label class="col-sm-3 col-form-label">ID </label>
                             <div class="col-sm-7">
               				  <?php 
                               $query="SELECT id_pembayaran FROM pembayaran where id_pembayaran";
@@ -118,11 +118,13 @@ error_reporting(0);
                         	<div class="col-sm-7">
 				                <select name="id_petugas" id="id_petugas" class="form-control">
 				                <?php
-				                  $q = mysqli_query($koneksi, "SELECT * FROM user");
-				                  while($data = mysqli_fetch_array($q)){
-				                    echo '<option value="'.$data['nama_petugas'].'">'.$data['nama_petugas'].'</option>';
-				                  }
-				                ?>
+
+				$q = mysqli_query($koneksi, "SELECT * FROM user");
+				while($data = mysqli_fetch_array($q)){
+					echo '<option value="'.$data['id_petugas'].'">'.$data['nama_petugas'].'</option>';
+				}
+
+			?>
              				    </select>
             				</div>
           			</div>

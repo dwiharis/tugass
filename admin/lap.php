@@ -1,8 +1,8 @@
 <?php
-
+include '_navbar.php';
 
 include 'koneksi.php';
-   
+   error_reporting(0);
 
       if(isset($_REQUEST['submit'])){
 
@@ -20,59 +20,72 @@ include 'koneksi.php';
 
          
 
-         echo '<h2>Rekap Pembayaran SPP <small>'.date('d M Y', strtotime($tgl1)).' sampai '.date('d M Y', strtotime($tgl2)).'</small></h2><hr>';
+       
 
-         echo '<a class="noprint pull-right btn btn-default" onclick="fnCetak()"><span class="glyphicon glyphicon-print" aria-hidden="true"></span> Cetak</a>';
+    
 
          
 
-      } else {
-
-         $tgl = date("d/m/Y");
-
-         $q = "SELECT * FROM pembayaran WHERE tgl_bayar BETWEEN '$tgl1' AND '$tgl2'";
-
-         echo '<h2>Rekap Pembayaran <small>'.$tgl.'</small></h2><hr>';
-
-      }
-
+      } 
       
 
       $sql = mysql_query($q);
 
       
 
-      echo '<div class="row">';
-
-      echo '<div class="col-md-5">';
-
+ 
 ?>
+        <div class="main-panel">
+          <div class="content-wrapper">
+              <div class="page-header">
+              <h3 class="page-title">
+                <span class="page-title-icon bg-gradient-primary text-white mr-2">
+                  <i class="mdi mdi-home"></i>
+                </span> Form SPP </h3>
+              <nav aria-label="breadcrumb">
+                <ul class="breadcrumb">
+                  <li class="breadcrumb-item active" aria-current="page">
+                    <span></span>Overview <i class="mdi mdi-alert-circle-outline icon-sm text-primary align-middle"></i>
+                  </li>
+                </ul>
+              </nav>
+            </div>
 
-<div class="well well-sm noprint">
 
+
+<div class="col-12">
+                <div class="card">
+                  <div class="card-body">
+                   
 <form class="form-inline" role="form" method="post" action="">
-
-  <div class="form-group">
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group row">
 
     <label class="sr-only" for="tgl1">Mulai</label>
-
-    <input type="date" class="form-control" id="tgl1" name="tgl1">
-
-  </div>
-
-  <div class="form-group">
-
-    <label class="sr-only" for="tgl2">Hingga</label>
-
+                            <div class="col-sm-9">
+                                <input type="date" class="form-control" id="tgl1" name="tgl1">
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                             <label class="sr-only" for="tgl2">Hingga</label>
+                            <div class="col-sm-9">  
     <input type="date" class="form-control" id="tgl2" name="tgl2">
 
-  </div>
+                            
+                              
+                            </div>
+                          </div>
+                        </div>                
+                      </div>
+      
+                       <button type="submit" name="submit" class="btn btn-default">Tampilkan</button>
+                      <button class="btn btn-light">Cancel</button>
+                    </form>
 
-  <button type="submit" name="submit" class="btn btn-default">Tampilkan</button>
-
-</form>
-
-</div>
 
                     <table class="table">
                       
@@ -117,6 +130,5 @@ include 'koneksi.php';
                                             ?>
                                         </table> 
 
-
-
-?>
+</div></div></div>
+<?php include '_footer.php'; ?>

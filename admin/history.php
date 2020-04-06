@@ -17,6 +17,8 @@ include '_nav.php';
                  </div>
             <?php
 
+                            $hariini=date('Y-m-d');
+                            
                             include "koneksi.php";
 
 
@@ -68,7 +70,7 @@ include '_nav.php';
                                             </thead>
                                             <?php
                                             include "koneksi.php";
-                                            $sql="select siswa.nis, siswa.nama, user.nama_petugas, pembayaran.tgl_bayar, pembayaran.bulan, pembayaran.tahun, pembayaran.jumlah_bayar from siswa, pembayaran, user WHERE pembayaran.nisn=siswa.nisn AND pembayaran.id_petugas=user.id_petugas ORDER BY pembayaran.tgl_bayar DESC";
+                                            $sql="select siswa.nis, siswa.nama, user.nama_petugas, pembayaran.tgl_bayar, pembayaran.bulan, pembayaran.tahun, pembayaran.jumlah_bayar from siswa, pembayaran, user WHERE pembayaran.nisn=siswa.nisn AND pembayaran.id_petugas=user.id_petugas AND pembayaran.tgl_bayar='$hariini' ORDER BY pembayaran.tgl_bayar DESC";
 
                                             $hasil=mysqli_query($koneksi,$sql);
                                             $no=0;

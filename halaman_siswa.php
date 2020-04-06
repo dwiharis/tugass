@@ -1,6 +1,7 @@
 
       <?php 
 include '_navbar.php';
+include 'koneksi.php';
  ?>
 
         <!-- partial -->
@@ -39,13 +40,15 @@ include '_navbar.php';
             
             </tr>
             <?php 
+            $sis=$_SESSION['nis'];
             $no = 1;
-            $sql = mysqli_query($koneksi,"select * from pembayaran where nis='$abc'");
+            
+            $sql = mysqli_query($konek,"select * from pembayaran where nisn='$sis'");
             while($data = mysqli_fetch_array($sql)){
             ?>
             <tr>
               <td><?php echo $no++; ?></td>
-              <td><?php echo $data['nis']; ?></td>
+              <td><?php echo $data['nisn']; ?></td>
               <td><?php echo $data['tgl_bayar']; ?></td>
               <td><?php echo $data['bulan']; ?></td>
               <td><?php echo $data['jumlah_bayar']; ?></td>

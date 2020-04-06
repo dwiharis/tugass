@@ -24,7 +24,8 @@
 
 	<?php 
 	include 'koneksi.php';
-	$id=$_GET['id_pembayaran'];
+	$tgl1=$_GET['tgl1'];
+  $tgl2=$_GET['tgl2'];
 	
 	?>
 	<div class="col-lg-12 grid-margin stretch-card" >

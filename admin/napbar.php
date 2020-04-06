@@ -97,7 +97,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="laporan1.php">
+              <a class="nav-link" href="history1.php">
                 <span class="menu-title">History</span>
                 <i class="mdi mdi-book menu-icon"></i>
               </a>

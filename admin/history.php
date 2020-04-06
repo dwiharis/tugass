@@ -65,12 +65,13 @@ include '_nav.php';
                              <th width="5%">Bulan</th>
                              <th width="5%">Periode</th>
                              <th width="5%">Besar SPP</th>
+                             <th width="5%">Aksi</th>
 
                                             </tr>
                                             </thead>
                                             <?php
                                             include "koneksi.php";
-                                            $sql="select siswa.nis, siswa.nama, user.nama_petugas, pembayaran.tgl_bayar, pembayaran.bulan, pembayaran.tahun, pembayaran.jumlah_bayar from siswa, pembayaran, user WHERE pembayaran.nisn=siswa.nisn AND pembayaran.id_petugas=user.id_petugas AND pembayaran.tgl_bayar='$hariini' ORDER BY pembayaran.tgl_bayar DESC";
+                                            $sql="select pembayaran.id_pembayaran, siswa.nis, siswa.nama, user.nama_petugas, pembayaran.tgl_bayar, pembayaran.bulan, pembayaran.tahun, pembayaran.jumlah_bayar, pembayaran.nisn from siswa, pembayaran, user WHERE pembayaran.nisn=siswa.nisn AND pembayaran.id_petugas=user.id_petugas AND pembayaran.tgl_bayar='$hariini' ORDER BY pembayaran.tgl_bayar DESC";
 
                                             $hasil=mysqli_query($koneksi,$sql);
                                             $no=0;
@@ -80,6 +81,9 @@ include '_nav.php';
                                                 ?>
                                                 <tbody>
                                                 <tr>
+                                                    <?php $id_bayar=$data["id_pembayaran"];
+                                                          $nisn=$data["nisn"];
+                                                     ?>
                                                     <td><?php echo $no;?></td>
                                                     <td><?php echo $data["nis"];   ?></td>
                                                     <td><?php echo $data["nama"];   ?></td>
@@ -88,7 +92,10 @@ include '_nav.php';
                                                     <td><?php echo $data["bulan"];   ?></td>
                                                     <td><?php echo $data["tahun"];   ?></td>
                                                     <td>Rp.<?php echo number_format($data["jumlah_bayar"]);   ?></td>
-                                                    
+                                                    <td>
+                                                      <?php 
+                                                      echo ' <a href="./cetak.php?submit=nota&id_pembayaran='.$id_bayar.'&nisn='.$nisn.'" target="_blank" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-print" aria-hidden="true">Cetak</span></a>'; ?>
+                                                    </td>
                                                 </tr>
                                                 </tbody>
                                                 <?php

@@ -12,7 +12,7 @@ include '_nav.php';
               <h3 class="page-title">
                 <span class="page-title-icon bg-gradient-primary text-white mr-2">
                   <i class="mdi mdi-home"></i>
-                </span> LAPORAN TRANSAKSI </h3>
+                </span>RIWAYAT TRANSAKSI </h3>
               	
                  </div>
             <?php

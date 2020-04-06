@@ -234,5 +234,5 @@ error_reporting(0);
 			</div>
 
 <?php 
-include '_footer.php';
+include '_fot.php';
  ?>

@@ -3,26 +3,6 @@
 include '_navbar.php';
  ?>
 
-      <!-- partial -->
-      <div class="container-fluid page-body-wrapper">
-        <!-- partial:partials/_sidebar.html -->
-        <nav class="sidebar sidebar-offcanvas" id="sidebar">
-          <ul class="nav">
-            <li class="nav-item">
-              <a class="nav-link" href="halaman_siswa.php">
-                <span class="menu-title">Dashboard</span>
-                <i class="mdi mdi-home menu-icon"></i>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="data.php">
-                <span class="menu-title">siswa</span>
-                <i class="mdi mdi-book menu-icon"></i>
-              </a>
-            </li>
-           
-          </ul>
-        </nav>
         <!-- partial -->
         <div class="main-panel">
           <div class="content-wrapper">
@@ -43,6 +23,45 @@ include '_navbar.php';
 <center><h2 class="display-3">SELAMAT DATANG </h2></center>
                             <center><p class="lead">Anda Login Sebagai SISWA yang mempunyai semua Hak Akses</p>
                             <p>Tim Support</p></center>
+
+
+  <div class="col-lg-12 grid-margin stretch-card" >
+                <div class="card">
+                  <div class="card-body">
+                    <h1 class="card-title">SMKN 2 SINGOSARI</h1>
+                      
+                    <br>  <br>  
+
+                    <table class="table table-border" align="center" border="1">
+            </td></tr>
+            </tabel><tabel>
+            <tr class="info"><th >No</th><th >Nisn</th><th>Tanggal Bayar</th><th>Bulan</th><th>Jumlah Bayar</th>
+            
+            </tr>
+            <?php 
+            $no = 1;
+            $sql = mysqli_query($koneksi,"select * from pembayaran where nis='$abc'");
+            while($data = mysqli_fetch_array($sql)){
+            ?>
+            <tr>
+              <td><?php echo $no++; ?></td>
+              <td><?php echo $data['nis']; ?></td>
+              <td><?php echo $data['tgl_bayar']; ?></td>
+              <td><?php echo $data['bulan']; ?></td>
+              <td><?php echo $data['jumlah_bayar']; ?></td>
+            </tr>
+            <?php 
+            }
+            ?>
+          </table>
+          </div>
+                </div>
+              </div>
+
+
+
+
+
           </div>
           <!-- content-wrapper ends -->
           <!-- partial:partials/_footer.html -->

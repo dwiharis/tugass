@@ -15,13 +15,6 @@
     <!-- endinject -->
     <!-- Layout styles -->
     <link rel="stylesheet" href="assets/css/style.css">
-     <script>
-  $(function() {
-    $( "#skills" ).autocomplete({
-      source: 'fetch.php'
-    });
-  });
-  </script>
 
     <!-- End layout styles -->
   </head>
@@ -63,15 +56,7 @@
             <i class="mdi mdi-logout mr-2 text-primary"></i> Signout </a>
         </div>
       </li>
-            <li class="nav-item nav-settings d-none d-lg-block">
-              <a class="nav-link" href="#">
-                <i class="mdi mdi-format-line-spacing"></i>
-              </a>
-            </li>
-          </ul>
-          <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
-            <span class="mdi mdi-menu"></span>
-          </button>
+
   
     </ul>
 
@@ -109,24 +94,17 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="lap.php">
-                <span class="menu-title">laporan</span>
-                <i class="mdi mdi-book menu-icon"></i>
-              </a>
-            </li>
-            <li class="nav-item">
               <a class="nav-link" href="laporan.php">
-                <span class="menu-title">History</span>
+                <span class="menu-title">Laporan</span>
                 <i class="mdi mdi-book menu-icon"></i>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="his.php">
+              <a class="nav-link" href="History.php">
                 <span class="menu-title">History</span>
                 <i class="mdi mdi-book menu-icon"></i>
               </a>
             </li>
-
            
           </ul>
         </nav>

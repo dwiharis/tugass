@@ -1,7 +1,7 @@
 
       <?php 
       include 'koneksi.php';
-include '_navbar.php';
+include '_nav.php';
 error_reporting(0);
 
  ?>
@@ -215,7 +215,7 @@ error_reporting(0);
 		        echo '<td>'.$tampil['nisn'].'</td>';
 		        echo '<td>'.$tampil['tgl_bayar'].'</td>';
 		        echo '<td>'.$tampil['bulan'].'</td>';
-		        echo '<td>'.$tampil['jumlah_bayar'].'</td><td>';
+		        echo '<td>Rp.'.number_format( $tampil['jumlah_bayar']).'</td><td>';
 		        
 		        if( $_SESSION['level'] == 1 ){
 		          $id= $tampil['id_pembayaran'];
@@ -240,5 +240,5 @@ error_reporting(0);
 			</div>
 
 <?php 
-include '_footer.php';
+include '_fot.php';
  ?>

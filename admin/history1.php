@@ -99,4 +99,4 @@ include 'napbar.php';
         </div>
           <!-- content-wrapper ends -->
           <!-- partial:partials/_footer.html -->
-        <?php include '_footer.php' ?>
+        <?php include '_fot.php' ?>

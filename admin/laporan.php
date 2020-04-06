@@ -57,7 +57,7 @@ include 'koneksi.php';
                 <div class="card">
                   <div class="card-body">
 
-                    <a href="cetak_laporan.php" class="btn btn-warning" role="button">Cetak</a><br><br>
+                    <a href="cetak_laporan.php" class="btn btn-warning" role="button" target="output">Cetak</a><br><br>
                    
 <form class="form-inline" role="form" method="post" action="">
                       <div class="row">
